@@ -26,4 +26,4 @@ tile_data = PoolIntArray( 720892, 5, 0, 720893, 5, 0, 720894, 5, 0, 720895, 5, 0
 position = Vector2( 328, 128 )
 
 [node name="Tree" parent="." instance=ExtResource( 2 )]
-position = Vector2( 152, 128 )
+position = Vector2( 248, 128 )

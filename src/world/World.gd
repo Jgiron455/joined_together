@@ -11,11 +11,9 @@ var max_citizen := 5
 var cur_citizen := 4
 var cur_wood := 0
 
-var castlePos
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	castlePos = $Castle.getDoorPosition()
 	pass # Replace with function body.
 
 
@@ -31,14 +29,15 @@ func _process(delta: float) -> void:
 		#if citz is Wood.instance():
 
 func add_citizen():
+	var castle = get_tree().get_nodes_in_group("castle")
 	if cur_citizen < max_citizen:
 		cur_citizen +=1
 		var citizen = Citizen.instance()
-		citizen.position = castlePos
+		citizen.position = castle[0].getDoorPosition()
 		add_child(citizen)
 		
 	if cur_wood < max_citizen:
 		cur_wood +=1
 		var citizen = Wood.instance()
-		citizen.position = castlePos
+		citizen.position = castle[0].getDoorPosition()
 		add_child(citizen)

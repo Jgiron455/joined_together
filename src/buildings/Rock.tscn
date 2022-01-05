@@ -1,48 +1,45 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://assets/building_tileset.tres" type="TileSet" id=1]
-[ext_resource path="res://src/buildings/Castle.gd" type="Script" id=2]
+[ext_resource path="res://src/buildings/Rock.gd" type="Script" id=2]
 
-[node name="Castle" type="Node2D"]
+[node name="Rock" type="Node2D"]
 script = ExtResource( 2 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 16, 16 )
-collision_layer = 2
-collision_mask = 0
 format = 1
-tile_data = PoolIntArray( 0, 0, 0 )
+tile_data = PoolIntArray( 65536, 26, 2, 65537, 26, 1, 65538, 26, 0 )
 
 [node name="Location" type="ReferenceRect" parent="."]
-margin_right = 80.0
-margin_bottom = 32.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Door" type="ReferenceRect" parent="."]
-margin_left = 32.0
-margin_top = 24.0
 margin_right = 48.0
 margin_bottom = 32.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Door2" type="ReferenceRect" parent="."]
-margin_left = 8.0
-margin_top = 24.0
+[node name="Rock" type="ReferenceRect" parent="."]
+margin_top = 16.0
 margin_right = 16.0
 margin_bottom = 32.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Door3" type="ReferenceRect" parent="."]
-margin_left = 64.0
-margin_top = 24.0
-margin_right = 72.0
+[node name="Rock2" type="ReferenceRect" parent="."]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 32.0
+margin_bottom = 32.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Rock3" type="ReferenceRect" parent="."]
+margin_left = 32.0
+margin_top = 16.0
+margin_right = 48.0
 margin_bottom = 32.0
 __meta__ = {
 "_edit_use_anchors_": false
