@@ -57,9 +57,12 @@ func accelerate_to_point(point, acceleration_scalar):
 	accelerate(acceleration_vector)
 
 func accelerate(acceleration_vector):
+	set_animation()
+	_velocity += acceleration_vector
+	_velocity = _velocity.clamped(MAX_SPEED)
+
+func set_animation():
 	if _velocity.x >= 0:
 		$AnimationPlayer.play("move_right")
 	else:
 		$AnimationPlayer.play("move_left")
-	_velocity += acceleration_vector
-	_velocity = _velocity.clamped(MAX_SPEED)

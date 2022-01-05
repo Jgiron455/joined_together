@@ -8,7 +8,7 @@ var Wood = preload("res://src/actors/WoodCutter.tscn")
 # var b: String = "text"
 
 var max_citizen := 5
-var cur_citizen := 5
+var cur_citizen := 4
 var cur_wood := 0
 
 var castlePos

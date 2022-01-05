@@ -1,4 +1,4 @@
-extends "res://Entity.gd"
+extends "res://src/actors/Entity.gd"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
