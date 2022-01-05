@@ -314,7 +314,6 @@ tracks/4/keys = {
 }
 
 [node name="Citizen" type="KinematicBody2D"]
-scale = Vector2( 2, 2 )
 collision_mask = 2
 script = ExtResource( 2 )
 

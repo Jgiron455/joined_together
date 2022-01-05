@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
-enum States {FALL, IDLE, WANDER}
-var state = States.IDLE
+enum States {FALL, IDLE, WANDER, RETURN, WOOD, GATHER}
+export var state = States.IDLE
 
 export var speed:= 5
 export var health:= 10
@@ -13,28 +13,23 @@ export var is_grounded:= false
 export var _velocity:= Vector2.ZERO 
 
 const FLOOR_NORMAL:= Vector2.UP
-const MAX_SPEED = 100
-const TOLERANCE = 2.0
-const ACCELERATION = 5
+const MAX_SPEED := 5
+const TOLERANCE := 5.0
 
-onready var start_position = global_position
-onready var target_position = global_position
+onready var start_position := global_position
+onready var target_position := global_position
 
-func basic_movement(delta):
-	check_falling()
-	match state:
-		States.IDLE:
-			state = States.WANDER
-			update_target_position()
-		States.WANDER:
-			accelerate_to_point(target_position, ACCELERATION * delta)
-			if is_at_target_position():
-				state = States.IDLE
-		States.FALL:
-			_velocity.y += gravity * delta
-			
-	
-	_velocity = move_and_slide(_velocity)
+func idle():
+	state = States.WANDER
+	update_target_position()
+
+func wander(delta):
+	accelerate_to_point(target_position, speed * delta)
+	if is_at_target_position():
+		state = States.IDLE
+
+func fall(delta):
+	_velocity.y += gravity * delta
 
 func check_falling():
 	if !is_on_wall() && !is_grounded:
@@ -48,6 +43,11 @@ func update_target_position():
 	var target_vector = Vector2(rand_range(-(walking_range), walking_range), 0)
 	target_position = start_position + target_vector
 	
+#func return_to_castle():
+#	var castle = get_tree().get_nodes_in_group("castle")
+#	target_position.x = castle[0].getDoorPosition().x
+#	state = States.RETURN
+		
 func is_at_target_position(): 
 	return (target_position - global_position).length() < TOLERANCE
 	

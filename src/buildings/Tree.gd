@@ -8,7 +8,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	add_to_group("castle")
+	add_to_group("tree")
 	pass # Replace with function body.
 
 
@@ -16,5 +16,8 @@ func _ready() -> void:
 #func _process(delta: float) -> void:
 #	pass
 
-func getDoorPosition() -> Position2D:
-	return $Door.rect_global_position
+func getLocation() -> Position2D:
+	return $Size.rect_global_position
+
+func getTreeLocation():
+	return [$Tree.rect_global_position, $Tree2.rect_global_position, $Tree3.rect_global_position]
