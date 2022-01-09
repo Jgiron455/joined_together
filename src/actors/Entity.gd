@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-enum States {FALL, IDLE, WANDER, RETURN, WOOD, GATHER}
+enum States {FALL, IDLE, WANDER, RETURN, WOOD, GATHER, CHANGE, QUIT}
 export var state = States.IDLE
 
 export var speed:= 5
@@ -18,6 +18,7 @@ const TOLERANCE := 5.0
 
 onready var start_position := global_position
 onready var target_position := global_position
+onready var animation : AnimationPlayer = $AnimationPlayer
 
 func idle():
 	state = States.WANDER
@@ -63,6 +64,7 @@ func accelerate(acceleration_vector):
 
 func set_animation():
 	if _velocity.x >= 0:
-		$AnimationPlayer.play("move_right")
+		animation.play("move_right")
 	else:
-		$AnimationPlayer.play("move_left")
+		animation.play("move_left")
+

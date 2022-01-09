@@ -1,22 +1,21 @@
-extends Node2D
+extends Button
 
-export var capacity := 5
 # Declare member variables here. Examples:
 # var a: int = 2
 # var b: String = "text"
 
+signal update_lodge
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	add_to_group("house")
-	PlayerData.set_max_citizen(PlayerData.max_citizen+capacity)
+	pass # Replace with function body.
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta: float) -> void:
 #	pass
 
-func getLocation() -> Position2D:
-	return $Location.rect_global_position
 
-func getDoorPosition() -> Position2D:
-	return $Door.rect_global_position
+func _on_Add_Lumberjack_button_up() -> void:
+	print("clicked")
+	emit_signal("update_lodge")

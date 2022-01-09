@@ -13,6 +13,11 @@ config_version=4
 config/name="joined_together"
 config/icon="res://icon.png"
 
+[autoload]
+
+PlayerData="*res://src/main/PlayerData.tscn"
+OperationControl="*res://src/ui/OperationControl.gd"
+
 [display]
 
 window/stretch/mode="viewport"
